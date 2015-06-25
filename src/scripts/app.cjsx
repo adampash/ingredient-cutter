@@ -1,11 +1,51 @@
-Link = require('react-router').Link
-RouteHandler = require('react-router').RouteHandler
+require '../../public/main.css'
+React = require 'react'
+Ingredient = require './ingredient'
+Tabs = require './tabs'
+# Assign React to Window so the Chrome React Dev Tools will work.
+window.React = React
 
-# Provides global navigation for app e.g. the "Hello | Styleguide" at the top.
-module.exports = React.createClass
-  displayName: 'HelloWorld'
+App = React.createClass
+  getInitialState: ->
+    ingredientInput: ''
+    ingredients: []
+    factor: 1
+    factorType: 'divide'
+
+  changeFactorType: (e) ->
+    @setState
+      factorType: e.target.id
+
+  changeFactor: (e) ->
+    @setState
+      factor: parseFloat(e)
+
+  handleChange: (e) ->
+    @setState
+      ingredientInput: e.target.value
+    if e.target.value.indexOf("\n") != -1
+      ingredients = e.target.value.split(/\n/)
+      @setState
+        ingredients: ingredients.concat @state.ingredients
+        ingredientInput: ''
+      console.log 'create a new ingredient'
+
   render: ->
+    ingredients = @state.ingredients.map (ingredient, index) =>
+      <Ingredient
+        data={ingredient}
+        factor={@state.factor}
+        key={index}
+      />
     <div>
-      <header><Link to="hello">Hello</Link> | <Link to="styleguide">Styleguide</Link></header>
-      <RouteHandler/>
+      <Tabs active={@state.factorType} handleClick={@changeFactorType}
+        changeFactor={@changeFactor}
+        factor={@state.factor}
+      />
+      <h4>Paste your ingredients here (more than one at a time is fine)</h4>
+      <textarea value={@state.ingredientInput} onChange={@handleChange} rows="1" />
+      {ingredients}
     </div>
+
+
+React.render <App/>, document.body

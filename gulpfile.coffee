@@ -23,11 +23,6 @@ gulp.task('css', ->
       bundle_exec: true
       time: true
       require: [
-        'susy',
-        'modular-scale',
-        'normalize-scss',
-        'sass-css-importer',
-        'sassy-buttons',
         'breakpoint']
     }))
     .on('error', (err) ->
