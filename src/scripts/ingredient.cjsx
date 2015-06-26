@@ -22,6 +22,29 @@ module.exports = React.createClass
       string = string.replace(regex, "#{key} ")
     string
 
+  float2rat: (x) ->
+    tolerance = 1.0e-6
+    h1=1
+    h2=0
+    k1=0
+    k2=1
+    b = x
+    # TODO separate our whole numbers for fractions like 4/3 to 1 1/3
+    while true
+      a = Math.floor(b)
+      aux = h1
+      h1 = a*h1+h2
+      h2 = aux
+      aux = k1
+      k1 = a*k1+k2
+      k2 = aux
+      b = 1/(b-a)
+      break unless (Math.abs(x-h1/k1) > x*tolerance)
+    if k1 is 1
+      "#{h1}"
+    else
+      h1+"/"+k1
+
   translateIngredients: ->
     string = @replaceUnicode()
     string = @convertStrings(string)
@@ -30,8 +53,10 @@ module.exports = React.createClass
       for num in nums
         num = parseFloat num
         newNum = num * @props.factor
-        string = string.replace(num.toString(), newNum.toString())
-    @decimalToFraction string
+        numString = @float2rat(newNum)
+        string = string.replace(num.toString(), numString)
+    # @decimalToFraction string
+    string
 
   vulgar_to_float:
     "\u00BC": "1/4"

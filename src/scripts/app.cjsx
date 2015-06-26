@@ -44,6 +44,9 @@ App = React.createClass
       />
       <h4>Paste your ingredients here (more than one at a time is fine)</h4>
       <textarea value={@state.ingredientInput} onChange={@handleChange} rows="1" />
+      <h4>{
+        @state.factor != 1 and "Here are you new ingredient measurements:"
+      }</h4>
       {ingredients}
     </div>
 
