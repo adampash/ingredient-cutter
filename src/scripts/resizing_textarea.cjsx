@@ -1,15 +1,18 @@
 React = require 'react'
 
 module.exports = React.createClass
+  MIN_HEIGHT: 200
   getInitialState: ->
-    height: 200
+    height: @MIN_HEIGHT
 
   onChange: (e) ->
     @props.onChange(e)
     textarea = e.target
     scrollHeight = textarea.scrollHeight
-    console.log scrollHeight
-    if scrollHeight > @state.height
+    if textarea.value is ''
+      @setState
+        height: @MIN_HEIGHT
+    else if scrollHeight > @state.height
       @setState
         height: textarea.scrollHeight
 
@@ -19,4 +22,5 @@ module.exports = React.createClass
       onChange={@onChange}
       ref="textarea"
       style={height: @state.height}
+      placeholder="Paste original measurements here"
     />

@@ -2,39 +2,71 @@
 @import "breakpoint";
 @import "flexbox";
 @import "base";
+@import "kinja_fonts";
 
 // Project imports
 
+$green: #729418;
+$tan: #F1F2E7;
 
-textarea {
-  resize: none;
-  width: 100%;
-  padding: 10px;
-  min-height: 200px;
-  outline: none;
-  border: 1px solid black;
-}
 h4 {
-  margin: 0;
+  margin: 0 0 10px;
+  font-family: Georgia;
+  font-weight: normal;
+  font-size: 24px;
+  border-top: 1px solid black;
+  padding: 10px 0;
 }
 .tabs {
   @include flexbox;
   @include flex-direction(row);
   @include flex-wrap(wrap);
+  @include align-content(stretch);
+  @include justify-content(space-between);
+  font-family: ProximaNovaCond;
+  font-weight: normal;
+  &.svgs {
+    img {
+      height: 100%;
+      max-width: 100%;
+    }
+    .active {
+      .pie {
+        fill: $green;
+      }
+    }
+  }
   .option {
-    padding: 5px;
-    margin: 3px;
+    @include flex(1 1 auto);
+    max-width: 32%;
+    text-align: center;
+    padding: 13px;
+    margin: 0 0 30px;
     cursor: pointer;
+    background: $tan;
+    font-size: 20px;
     &.active {
-      outline: 1px solid black;
+      color: white;
+      background: $green;
     }
   }
   .amount {
-    padding: 5px;
-    margin: 3px;
+    @include flex(1 1 auto);
+    // @include flexbox;
+    // @include justify-content(middle);
+    background: $tan;
+    min-width: 65px;
+    min-height: 65px;
+    font-size: 28px;
+    border-radius: 50%;
+    text-align: center;
+    // padding: 5px;
+    padding: 16px 0 0;
+    margin-bottom: 30px;
     cursor: pointer;
     &.active {
-      outline: 1px solid black;
+      color: white;
+      background: $green;
     }
   }
 }
@@ -42,7 +74,49 @@ h4 {
 .ingredients {
   @include flexbox;
   @include flex-direction(row);
+  h5 {
+    font-family: ProximaNovaCond;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 5px 0;
+  }
   .list {
     width: 50%;
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  textarea {
+    resize: none;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: $tan;
+    &::-webkit-input-placeholder {
+       color: black;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+       color: black;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+       color: black;
+    }
+
+    &:-ms-input-placeholder {
+       color: black;
+    }
+  }
+  .results {
+    background: $green;
+    color: white;
+  }
+  textarea, .results {
+    min-height: 200px;
+    font-family: ProximaNovaCond;
+    font-size: 18px;
+    padding: 20px;
   }
 }

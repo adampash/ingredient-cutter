@@ -10,8 +10,8 @@ App = React.createClass
   getInitialState: ->
     ingredientInput: ''
     ingredients: []
-    factor: 0.5
-    factorType: 'divide'
+    factor: 2
+    factorType: 'multiply'
 
   changeFactorType: (e) ->
     @setState
@@ -40,16 +40,17 @@ App = React.createClass
         changeFactor={@changeFactor}
         factor={@state.factor}
       />
+      <h4>Ingredients</h4>
       <div className="ingredients">
         <div className="list">
-          <h4>Paste your ingredients here (more than one at a time is fine)</h4>
+          <h5>Recipe Measurements</h5>
           <ResizingTextarea value={@state.ingredientInput} onChange={@handleChange} />
         </div>
         <div className="list">
-          <h4>{
-            @state.factor != 1 and "Here are you new ingredient measurements:"
-          }</h4>
-          {ingredients}
+          <h5>Your New Measurements</h5>
+          <div className="results">
+            {ingredients}
+          </div>
         </div>
       </div>
     </div>

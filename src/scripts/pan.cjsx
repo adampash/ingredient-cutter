@@ -21,7 +21,7 @@ module.exports = React.createClass
 
   render: ->
     <div>
-      <h4>Recipe pan size:</h4>
+      <h4>Pick Shape & Pan Size</h4>
       <input type="text" value={@state.recipe_x} (
         id="recipe_x"
         onChange={@handleChange}
