@@ -3,19 +3,27 @@
 @import "flexbox";
 @import "base";
 @import "kinja_fonts";
+@import "font_smoothing";
 
 // Project imports
 
 $green: #729418;
 $tan: #F1F2E7;
+$black: #333;
+$gray: #AFAFAF;
+
+body {
+  color: $black;
+  @include font-smoothing;
+}
 
 h4 {
   margin: 0 0 10px;
   font-family: Georgia;
   font-weight: normal;
   font-size: 24px;
-  border-top: 1px solid black;
-  padding: 10px 0;
+  border-top: 1px solid $black;
+  padding: 6px 0 10px;
 }
 .tabs {
   @include flexbox;
@@ -31,12 +39,13 @@ h4 {
       @include flex(1 1 auto);
       max-width: 20%;
       .amount {
-        font-size: 20px;
+        font-size: 19px;
         min-width: auto;
         min-height: auto;
         background: none;
         border-radius: none;
         padding-top: 8px;
+        margin: 0 0 40px;
       }
     }
     .active {
@@ -53,10 +62,10 @@ h4 {
     max-width: 32%;
     text-align: center;
     padding: 13px;
-    margin: 0 0 30px;
+    margin: 0 0 40px;
     cursor: pointer;
     background: $tan;
-    font-size: 20px;
+    font-size: 19px;
     &.active {
       color: white;
       background: $green;
@@ -69,11 +78,11 @@ h4 {
     background: $tan;
     min-width: 65px;
     min-height: 65px;
-    font-size: 28px;
+    font-size: 26px;
     border-radius: 50%;
     text-align: center;
     // padding: 5px;
-    padding: 16px 0 0;
+    padding: 19px 0 0;
     margin-bottom: 30px;
     cursor: pointer;
     &.active {
@@ -83,13 +92,25 @@ h4 {
   }
 }
 
+h5 {
+  font-family: ProximaNovaCond;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+textarea, input {
+  outline: none;
+  border: none;
+  background: white;
+  border: 1px solid $black;
+  font-family: ProximaNovaCond;
+  font-weight: normal;
+}
+
 .ingredients {
   @include flexbox;
   @include flex-direction(row);
   h5 {
-    font-family: ProximaNovaCond;
-    font-weight: normal;
-    font-size: 16px;
     margin: 5px 0;
   }
   .list {
@@ -102,80 +123,92 @@ h4 {
   textarea {
     resize: none;
     width: 100%;
-    outline: none;
-    border: none;
-    background: $tan;
+    padding: 19px;
     &::-webkit-input-placeholder {
-       color: black;
+       color: $green;
+       font-size: 16px;
     }
 
     &:-moz-placeholder { /* Firefox 18- */
-       color: black;
+       color: $green;
     }
 
     &::-moz-placeholder {  /* Firefox 19+ */
-       color: black;
+       color: $green;
     }
 
     &:-ms-input-placeholder {
-       color: black;
+       color: $green;
     }
   }
   .results {
-    background: $green;
-    color: white;
+    background: $tan;
+    padding: 20px;
   }
   textarea, .results {
-    min-height: 200px;
+    min-height: 100px;
     font-family: ProximaNovaCond;
+    // font-family: Georgia;
     font-size: 18px;
-    padding: 20px;
   }
 }
 .pan {
   @include flexbox;
   @include flex-direction(row);
   font-family: ProximaNovaCond;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  margin-top: -10px;
   .size {
-    // border-left: 1px solid black;
+    // border-left: 1px solid $black;
+  }
+  .shapes {
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(space-around);
+    @include align-items(center);
   }
   div {
     width: 50%;
     .rect, .round {
       cursor: pointer;
       background: $tan;
-      margin: 20px 40px 20px 0;
+      width: 50%;
       @include flexbox;
       @include justify-content(center);
       @include align-items(center);
-      padding: 42px 30px;
+      @include flex(0 0 auto);
       font-size: 20px;
+      margin: 20px 20px 0 0;
+      text-align: center;
       &.active {
         background: $green;
         color: white;
       }
     }
     .rect {
-      // outline: 3px solid white;
+      width: 130px;
+      height: 130px;
     }
     .round {
       border-radius: 50%;
+      width: 140px;
+      height: 140px;
     }
   }
   h5 {
     margin: 0;
-    font-size: 16px;
+    margin-bottom: 4px;
   }
   .border {
-    border-left: 1px solid black;
+    border-left: 1px solid $black;
     width: 100%;
   }
   .push {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 25px;
+    margin-left: 5px;
+    padding-right: 5px;
   }
-  .pan.size {
+  .size {
     @include flexbox;
     @include flex-direction(column);
     .measurement, .container {
@@ -185,7 +218,7 @@ h4 {
       width: 100%;
     }
     .measurement {
-      margin: 3px 0 10px;
+      margin: 0 0 22px;
       &.last {
         margin-bottom: 0;
       }
@@ -193,7 +226,7 @@ h4 {
 
       }
       .by, .inches {
-        @include flex(1 1 80px);
+        @include flex(1 1 55px);
         text-align: center;
         @include align-items(center);
         @include flexbox;
@@ -203,15 +236,26 @@ h4 {
         margin: 0;
       }
       .by {
-        &::after {
-          content: "×";
+        padding: 0 15px;
+        @include flexbox;
+        @include justify-content(center);
+        @include align-items(center);
+        svg {
+          width: 100%;
+          height: auto;
         }
+        // &::after {
+        //   content: "×";
+        // }
       }
       input {
+        // color: $black;
+        // font-weight: normal;
+        // font-family: ProximaNovaCond;
         outline: none;
         border: none;
-        font-size: 28px;
-        padding: 10px;
+        font-size: 22px;
+        padding: 10px 8px 6px;
         width: 100%;
         text-align: center;
         @include flex(2 1 auto);

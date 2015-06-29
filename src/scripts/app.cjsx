@@ -18,7 +18,6 @@ App = React.createClass
       factorType: e.target.id
 
   changeFactor: (e) ->
-    console.log parseFloat(e)
     @setState
       factor: parseFloat(e)
 

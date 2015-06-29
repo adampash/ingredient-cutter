@@ -20,6 +20,7 @@
     "gulp-util": "^3.0.4",
     "highlight.js": "^8.4.0",
     "jest-cli": "^0.4.0",
+    "jquery": "^2.1.4",
     "map-stream": "0.0.5",
     "react": "^0.13.3",
     "react-hot-loader": "^1.1.7",

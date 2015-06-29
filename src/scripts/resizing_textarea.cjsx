@@ -1,7 +1,7 @@
 React = require 'react'
 
 module.exports = React.createClass
-  MIN_HEIGHT: 200
+  MIN_HEIGHT: 100
   getInitialState: ->
     height: @MIN_HEIGHT
 
