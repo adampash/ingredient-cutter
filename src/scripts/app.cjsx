@@ -10,14 +10,15 @@ App = React.createClass
   getInitialState: ->
     ingredientInput: ''
     ingredients: []
-    factor: 2
-    factorType: 'multiply'
+    factor: 0.5
+    factorType: 'pan'
 
   changeFactorType: (e) ->
     @setState
       factorType: e.target.id
 
   changeFactor: (e) ->
+    console.log parseFloat(e)
     @setState
       factor: parseFloat(e)
 

@@ -1,6 +1,8 @@
 React = require 'react'
 Factor = require './factor'
 Pan = require './pan'
+Divide = require './divide'
+
 module.exports = React.createClass
   render: ->
     <div>
@@ -32,15 +34,7 @@ module.exports = React.createClass
         if @props.active is "pan"
           <Pan changeFactor={@props.changeFactor} changeFactor={@props.changeFactor} />
         else if @props.active is "divide"
-          <div>
-            <h4>Divide recipe by</h4>
-            <div className="tabs svgs">
-              <Factor factor="0.5" activeFactor={@props.factor} display="Half" changeFactor={@props.changeFactor} />
-              <Factor factor="0.3333333333333333" activeFactor={@props.factor} display="A Third" changeFactor={@props.changeFactor} />
-              <Factor factor="0.25" activeFactor={@props.factor} display="A Quarter" changeFactor={@props.changeFactor} />
-              <Factor factor="0.125" activeFactor={@props.factor} display="An Eighth" changeFactor={@props.changeFactor} />
-            </div>
-          </div>
+          <Divide changeFactor={@props.changeFactor} factor={@props.factor} />
         else if @props.active is "multiply"
           <div>
             <h4>Multiply recipe by</h4>

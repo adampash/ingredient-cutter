@@ -26,13 +26,25 @@ h4 {
   font-family: ProximaNovaCond;
   font-weight: normal;
   &.svgs {
-    img {
-      height: 100%;
-      max-width: 100%;
+    .pair {
+      cursor: pointer;
+      @include flex(1 1 auto);
+      max-width: 20%;
+      .amount {
+        font-size: 20px;
+        min-width: auto;
+        min-height: auto;
+        background: none;
+        border-radius: none;
+        padding-top: 8px;
+      }
     }
     .active {
       .pie {
         fill: $green;
+      }
+      .amount {
+        color: $green;
       }
     }
   }
@@ -118,5 +130,99 @@ h4 {
     font-family: ProximaNovaCond;
     font-size: 18px;
     padding: 20px;
+  }
+}
+.pan {
+  @include flexbox;
+  @include flex-direction(row);
+  font-family: ProximaNovaCond;
+  margin-bottom: 30px;
+  .size {
+    // border-left: 1px solid black;
+  }
+  div {
+    width: 50%;
+    .rect, .round {
+      cursor: pointer;
+      background: $tan;
+      margin: 20px 40px 20px 0;
+      @include flexbox;
+      @include justify-content(center);
+      @include align-items(center);
+      padding: 42px 30px;
+      font-size: 20px;
+      &.active {
+        background: $green;
+        color: white;
+      }
+    }
+    .rect {
+      // outline: 3px solid white;
+    }
+    .round {
+      border-radius: 50%;
+    }
+  }
+  h5 {
+    margin: 0;
+    font-size: 16px;
+  }
+  .border {
+    border-left: 1px solid black;
+    width: 100%;
+  }
+  .push {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .pan.size {
+    @include flexbox;
+    @include flex-direction(column);
+    .measurement, .container {
+      @include flexbox;
+      @include flex-direction(row);
+      @include justify-content(space-between);
+      width: 100%;
+    }
+    .measurement {
+      margin: 3px 0 10px;
+      &.last {
+        margin-bottom: 0;
+      }
+      .inches {
+
+      }
+      .by, .inches {
+        @include flex(1 1 80px);
+        text-align: center;
+        @include align-items(center);
+        @include flexbox;
+        @include justify-content(center);
+        font-size: 35px;
+        padding: 0;
+        margin: 0;
+      }
+      .by {
+        &::after {
+          content: "×";
+        }
+      }
+      input {
+        outline: none;
+        border: none;
+        font-size: 28px;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        @include flex(2 1 auto);
+        &.original {
+          background: $tan;
+        }
+        &.actual {
+          background: $green;
+          color: white;
+        }
+      }
+    }
   }
 }

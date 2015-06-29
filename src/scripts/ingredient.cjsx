@@ -23,7 +23,8 @@ module.exports = React.createClass
     string
 
   float2rat: (x) ->
-    tolerance = 1.0e-6
+    # tolerance = 1.0e-6
+    tolerance = 1.0e-1
     h1=1
     h2=0
     k1=0
