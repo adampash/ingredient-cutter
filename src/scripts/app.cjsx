@@ -24,11 +24,9 @@ App = React.createClass
   handleChange: (e) ->
     @setState
       ingredientInput: e.target.value
-    if e.target.value.indexOf("\n") != -1
-      ingredients = e.target.value.split(/\n/)
-      @setState
-        ingredients: ingredients.concat @state.ingredients
-      console.log 'create a new ingredient'
+    ingredients = e.target.value.split(/\n/)
+    @setState
+      ingredients: ingredients
 
   render: ->
     ingredients = @state.ingredients.map (ingredient, index) =>
