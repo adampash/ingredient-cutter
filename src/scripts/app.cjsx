@@ -2,6 +2,7 @@ require '../../public/main.css'
 React = require 'react'
 Ingredient = require './ingredient'
 Tabs = require './tabs'
+ResizingTextarea = require './resizing_textarea'
 # Assign React to Window so the Chrome React Dev Tools will work.
 window.React = React
 
@@ -9,7 +10,7 @@ App = React.createClass
   getInitialState: ->
     ingredientInput: ''
     ingredients: []
-    factor: 1
+    factor: 0.5
     factorType: 'divide'
 
   changeFactorType: (e) ->
@@ -27,7 +28,6 @@ App = React.createClass
       ingredients = e.target.value.split(/\n/)
       @setState
         ingredients: ingredients.concat @state.ingredients
-        ingredientInput: ''
       console.log 'create a new ingredient'
 
   render: ->
@@ -42,12 +42,18 @@ App = React.createClass
         changeFactor={@changeFactor}
         factor={@state.factor}
       />
-      <h4>Paste your ingredients here (more than one at a time is fine)</h4>
-      <textarea value={@state.ingredientInput} onChange={@handleChange} rows="1" />
-      <h4>{
-        @state.factor != 1 and "Here are you new ingredient measurements:"
-      }</h4>
-      {ingredients}
+      <div className="ingredients">
+        <div className="list">
+          <h4>Paste your ingredients here (more than one at a time is fine)</h4>
+          <ResizingTextarea value={@state.ingredientInput} onChange={@handleChange} />
+        </div>
+        <div className="list">
+          <h4>{
+            @state.factor != 1 and "Here are you new ingredient measurements:"
+          }</h4>
+          {ingredients}
+        </div>
+      </div>
     </div>
 
 

@@ -10,6 +10,9 @@ textarea {
   resize: none;
   width: 100%;
   padding: 10px;
+  min-height: 200px;
+  outline: none;
+  border: 1px solid black;
 }
 h4 {
   margin: 0;
@@ -33,5 +36,13 @@ h4 {
     &.active {
       outline: 1px solid black;
     }
+  }
+}
+
+.ingredients {
+  @include flexbox;
+  @include flex-direction(row);
+  .list {
+    width: 50%;
   }
 }
