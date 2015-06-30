@@ -11,7 +11,7 @@ App = React.createClass
     ingredientInput: ''
     ingredients: []
     factor: 0.5
-    factorType: 'pan'
+    factorType: 'divide'
 
   changeFactorType: (e) ->
     @setState
@@ -21,10 +21,10 @@ App = React.createClass
     @setState
       factor: parseFloat(e)
 
-  handleChange: (e) ->
+  handleChange: (ingredientInput) ->
     @setState
-      ingredientInput: e.target.value
-    ingredients = e.target.value.split(/\n/)
+      ingredientInput: ingredientInput
+    ingredients = ingredientInput.split(/\n/)
     @setState
       ingredients: ingredients
 

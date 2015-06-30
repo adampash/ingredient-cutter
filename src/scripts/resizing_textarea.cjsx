@@ -1,4 +1,5 @@
 React = require 'react'
+Utils = require './utils'
 
 module.exports = React.createClass
   MIN_HEIGHT: 100
@@ -6,7 +7,10 @@ module.exports = React.createClass
     height: @MIN_HEIGHT
 
   onChange: (e) ->
-    @props.onChange(e)
+    text = e.target.value
+    if text != ''
+      text = Utils.replaceUnicode(text)
+    @props.onChange(text)
     textarea = e.target
     scrollHeight = textarea.scrollHeight
     if textarea.value is ''
