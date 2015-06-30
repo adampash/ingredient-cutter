@@ -17,6 +17,9 @@ module.exports = React.createClass
     @sizeShapes()
     window.addEventListener 'resize', @sizeShapes
 
+  componentWillUnmount: ->
+    window.removeEventListener 'resize', @sizeShapes
+
   sizeShapes: ->
     half = $('.shapes').width()/2
     circle = Math.round(half * 0.94)
