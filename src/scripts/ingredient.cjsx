@@ -24,12 +24,17 @@ module.exports = React.createClass
 
   float2rat: (x) ->
     # tolerance = 1.0e-6
+    if x > 1
+      w = parseInt x
+      f = x - w
+    else
+      f = x
     tolerance = 1.0e-1
     h1=1
     h2=0
     k1=0
     k2=1
-    b = x
+    b = f
     # TODO separate our whole numbers for fractions like 4/3 to 1 1/3
     while true
       a = Math.floor(b)
@@ -40,11 +45,17 @@ module.exports = React.createClass
       k1 = a*k1+k2
       k2 = aux
       b = 1/(b-a)
-      break unless (Math.abs(x-h1/k1) > x*tolerance)
+      break unless (Math.abs(f-h1/k1) > f*tolerance)
     if k1 is 1
-      "#{h1}"
+      if w?
+        "#{w + h1}"
+      else
+        "#{h1}"
     else
-      h1+"/"+k1
+      if w?
+        "#{w} #{h1}/#{k1}"
+      else
+        "#{h1}/#{k1}"
 
   translateIngredients: ->
     string = @replaceUnicode()
