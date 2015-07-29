@@ -6,13 +6,14 @@ module.exports = React.createClass
   translateIngredients: ->
     string = Utils.replaceUnicode(@props.data)
     string = Utils.convertStrings(string)
-    nums = Utils.getAmounts(string)
+    [nums, string] = Utils.getAmounts(string)
     if nums?
       for num in nums
         num = parseFloat num
         newNum = num * @props.factor
         numString = Utils.float2rat(newNum)
-        string = string.replace(num.toString(), numString)
+        string = string.replace("REPLACE:#{num.toString()}", numString)
+        console.log "NUM: ", num, "NUMSTRING: ", numString, "STRING: ", string
     string
 
   render: ->

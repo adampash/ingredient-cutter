@@ -1,7 +1,18 @@
 _ = require 'underscore'
 module.exports =
   getAmounts: (string) ->
-    nums = string.match(/\d+\.?\d*/g)
+    nums = string.match(/\d+(\.\d+|\s\d+\.\d+)?/g)
+    console.log nums
+    # nums = string.match(/\d+\.?\d*/g)
+    nums = nums?.map (num) ->
+      if num.split(" ").length
+        newNum = num.split(" ").reduce (num=0, current) ->
+          (parseFloat(num) + parseFloat(current)) + ""
+        string = string.replace(num, "REPLACE:#{newNum}")
+        newNum
+      else
+        num
+    [nums, string]
 
   replaceUnicode: (string) ->
     _.mapObject @vulgar_to_float, (value, key) ->
