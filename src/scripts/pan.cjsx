@@ -8,7 +8,7 @@ module.exports = React.createClass
     recipe_y: '13'
     my_x: '8'
     my_y: '8'
-    activePan: 'rect'
+    activePan: null
     circle: 130
     square: 120
     margin: 20

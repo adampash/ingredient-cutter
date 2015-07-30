@@ -2,6 +2,7 @@ require '../../public/main.css'
 React = require 'react'
 Ingredient = require './ingredient'
 Tabs = require './tabs'
+Print = require './print'
 ResizingTextarea = require './resizing_textarea'
 # Assign React to Window so the Chrome React Dev Tools will work.
 window.React = React
@@ -47,7 +48,10 @@ App = React.createClass
           <ResizingTextarea value={@state.ingredientInput} onChange={@handleChange} />
         </div>
         <div className="list">
-          <h5>Your New Measurements</h5>
+          <h5>
+            Your New Measurements
+            (<Print />)
+          </h5>
           <div className="results">
             {ingredients}
           </div>
