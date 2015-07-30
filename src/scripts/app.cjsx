@@ -17,6 +17,26 @@ App = React.createClass
   changeFactorType: (e) ->
     @setState
       factorType: e.target.id
+    @resize()
+
+  componentDidMount: ->
+    @resize()
+    window.addEventListener 'resize', @resize
+
+  componentWillUnmount: ->
+    window.removeEventListener 'resize', @resize
+
+  resize: ->
+    height = $('body').height() + 20
+    console.log height
+    window.top.postMessage(
+      JSON.stringify(
+        kinja:
+          sourceUrl: window.location.href
+          resizeFrame:
+            height: height
+      ), '*'
+    )
 
   changeFactor: (e) ->
     @setState
