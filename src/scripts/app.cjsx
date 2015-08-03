@@ -4,6 +4,7 @@ Ingredient = require './ingredient'
 Tabs = require './tabs'
 Print = require './print'
 ResizingTextarea = require './resizing_textarea'
+$ = require 'jquery'
 # Assign React to Window so the Chrome React Dev Tools will work.
 window.React = React
 
@@ -60,6 +61,7 @@ App = React.createClass
       <Tabs active={@state.factorType} handleClick={@changeFactorType}
         changeFactor={@changeFactor}
         factor={@state.factor}
+        resize={@resize}
       />
       <h4>Ingredients</h4>
       <div className="ingredients">

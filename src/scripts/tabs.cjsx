@@ -34,7 +34,9 @@ module.exports = React.createClass
         if @props.active is "pan"
           <Pan changeFactor={@props.changeFactor} changeFactor={@props.changeFactor} />
         else if @props.active is "divide"
-          <Divide changeFactor={@props.changeFactor} factor={@props.factor} />
+          <Divide changeFactor={@props.changeFactor} factor={@props.factor}
+            resize={@props.resize}
+          />
         else if @props.active is "multiply"
           <div>
             <h4>Multiply recipe by</h4>

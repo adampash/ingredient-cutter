@@ -12,6 +12,6 @@ module.exports = React.createClass
       className={"pair #{'active' if @props.factor is parseFloat(@props.amount)}"}
       onClick={@handleClick}
     >
-      <Isvg src={"#{@props.svg}.svg"} />
+      <Isvg src={"#{@props.svg}.svg"} onLoad={@props.resize} />
       <Factor factor={@props.amount} activeFactor={@props.factor} display={@props.display} changeFactor={@props.changeFactor} />
     </div>
