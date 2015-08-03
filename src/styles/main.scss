@@ -276,3 +276,23 @@ textarea, input {
 .print {
   cursor: pointer;
 }
+
+h3.interactive {
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  font-family: ProximaNovaCond;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: #222;
+  margin-bottom: 0;
+  margin-top: 20px;
+  // font-weight: normal;
+  // color: $blue;
+}
+
+
+@media (max-width: 480px) {
+  h5 {
+    padding-right: 5px;
+  }
+}

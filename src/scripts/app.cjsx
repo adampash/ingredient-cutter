@@ -28,8 +28,8 @@ App = React.createClass
     window.removeEventListener 'resize', @resize
 
   resize: ->
-    height = $('body').height() + 20
-    console.log height
+    height = $('body').outerHeight() + 20
+    # console.log height
     window.top.postMessage(
       JSON.stringify(
         kinja:
@@ -56,8 +56,10 @@ App = React.createClass
         data={ingredient}
         factor={@state.factor}
         key={index}
+        resize={@resize}
       />
     <div>
+      <h3 className="interactive">Interactive</h3>
       <Tabs active={@state.factorType} handleClick={@changeFactorType}
         changeFactor={@changeFactor}
         factor={@state.factor}
@@ -67,7 +69,10 @@ App = React.createClass
       <div className="ingredients">
         <div className="list">
           <h5>Recipe Measurements</h5>
-          <ResizingTextarea value={@state.ingredientInput} onChange={@handleChange} />
+          <ResizingTextarea value={@state.ingredientInput}
+            onChange={@handleChange}
+            resize={@resize}
+          />
         </div>
         <div className="list">
           <h5>

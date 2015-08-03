@@ -1,5 +1,6 @@
 React = require 'react'
 Utils = require './utils'
+$ = require 'jquery'
 
 module.exports = React.createClass
   MIN_HEIGHT: 100
@@ -13,12 +14,19 @@ module.exports = React.createClass
     @props.onChange(text)
     textarea = e.target
     scrollHeight = textarea.scrollHeight
-    if textarea.value is ''
-      @setState
-        height: @MIN_HEIGHT
-    else if scrollHeight > @state.height
-      @setState
-        height: textarea.scrollHeight
+    minHeight = Math.max(@MIN_HEIGHT, $('.results').outerHeight())
+    @setState
+      height: minHeight
+    , =>
+      @props.resize()
+      if textarea.value is ''
+        @setState
+          height: @MIN_HEIGHT
+        , => @props.resize()
+      else if scrollHeight > @state.height
+        @setState
+          height: textarea.scrollHeight + 2
+        , => @props.resize()
 
   render: ->
     <textarea

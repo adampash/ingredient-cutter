@@ -2,7 +2,7 @@ _ = require 'underscore'
 module.exports =
   getAmounts: (string) ->
     nums = string.match(/\d+(\.\d+|\s\d+\.\d+)?/g)
-    console.log nums
+    # console.log nums
     # nums = string.match(/\d+\.?\d*/g)
     nums = nums?.map (num) ->
       if num.split(" ").length

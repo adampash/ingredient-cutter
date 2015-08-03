@@ -24,7 +24,7 @@ You'll also need to have gulp installed globally to run the coffeescript gulpfil
 ## Development
 Run in the root of your directory: `npm run watch`
 
-This will watch the src directories and build on changes and placed the built css and js files in the public directory. It'll serve everything in the /public directory at localhost:8080
+This will watch the src directories and build on changes and placed the built css and js files in the public directory. It'll serve everything in the /public directory at localhost:3000
 
 Then try editing `src/scripts/hello_world.cjsx` and see your changes magically show up in your browser with *no* page reload!
 
