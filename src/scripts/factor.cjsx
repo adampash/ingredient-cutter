@@ -5,7 +5,7 @@ module.exports = React.createClass
 
   render: ->
     activeClass = if parseFloat(@props.factor) == @props.activeFactor then "active" else ""
-    <div>
+    <div className="num_container">
       <div
         className={"amount #{activeClass}"}
         onClick={@handleClick}>{@props.display}</div>

@@ -77,7 +77,7 @@ App = React.createClass
         <div className="list">
           <h5>
             Your New Measurements
-            (<Print />)
+            <span className="hide_mobile"> (<Print />)</span>
           </h5>
           <div className="results">
             {ingredients}

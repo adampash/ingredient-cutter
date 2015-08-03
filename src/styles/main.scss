@@ -38,7 +38,7 @@ h4 {
   &.svgs {
     .pair {
       cursor: pointer;
-      @include flex(1 1 auto);
+      @include flex(1 1);
       max-width: 20%;
       .amount {
         font-size: 19px;
@@ -60,7 +60,7 @@ h4 {
     }
   }
   .option {
-    @include flex(1 1 auto);
+    @include flex(1 1);
     max-width: 32%;
     text-align: center;
     padding: 13px;
@@ -74,7 +74,7 @@ h4 {
     }
   }
   .amount {
-    @include flex(1 1 auto);
+    // @include flex(1 1);
     // @include flexbox;
     // @include justify-content(middle);
     background: $tan;
@@ -107,6 +107,8 @@ textarea, input {
   border: 1px solid $black;
   font-family: ProximaNovaCond;
   font-weight: normal;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 .ingredients {
@@ -291,8 +293,34 @@ h3.interactive {
 }
 
 
+$factor_num: 80px;
 @media (max-width: 480px) {
+  .hide_mobile {
+    display: none;
+  }
   h5 {
-    padding-right: 5px;
+    padding-right: 25px;
+    font-size: 18px;
+  }
+  .tabs {
+    .option {
+      max-width: 32%;
+    }
+    .num_container {
+      width: $factor_num;
+      height: $factor_num;
+      margin-bottom: 20px;
+    }
+    .amount {
+      min-width: $factor_num;
+      min-height: $factor_num;
+      margin-bottom: 20px;
+      padding-top: 24px;
+    }
+  }
+  .pan div {
+    .rect, .round {
+      font-size: 14px;
+    }
   }
 }
