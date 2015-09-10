@@ -15,7 +15,7 @@ $ = require('gulp-load-plugins')()
 gulp.task('css', ->
   gulp.src(['src/styles/*.sass', 'src/styles/*.scss'])
     .pipe($.compass({
-      css: 'public/'
+      css: 'build/'
       sass: 'src/styles'
       image: 'src/styles/images'
       style: 'nested'
@@ -29,7 +29,7 @@ gulp.task('css', ->
       gutil.log err
     )
     .pipe($.size())
-    .pipe(gulp.dest('public/'))
+    .pipe(gulp.dest('build/'))
     .pipe(map((a, cb) ->
       if devServer.invalidate? then devServer.invalidate()
       cb()
@@ -38,7 +38,7 @@ gulp.task('css', ->
 
 gulp.task('copy-assets', ->
     gulp.src('assets/**')
-      .pipe(gulp.dest('public'))
+      .pipe(gulp.dest('build'))
       .pipe($.size())
 )
 
@@ -89,12 +89,12 @@ gulp.task "webpack:build-dev", ['css'], (callback) ->
 
 devServer = {}
 gulp.task "webpack-dev-server", ['css'], (callback) ->
-  # Ensure there's a `./public/main.css` file that can be required.
-  touch.sync('./public/main.css', time: new Date(0))
+  # Ensure there's a `./build/main.css` file that can be required.
+  touch.sync('./build/main.css', time: new Date(0))
 
   # Start a webpack-dev-server.
   devServer = new WebpackDevServer(webpack(webpackConfig),
-    contentBase: './public/'
+    contentBase: './build/'
     hot: true
     watchDelay: 100
     noInfo: true

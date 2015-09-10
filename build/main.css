@@ -1,0 +1,490 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  padding: 1.5rem;
+  font-weight: 400;
+  color: gray(35%);
+  text-rendering: optimizeLegibility;
+  word-wrap: break; }
+
+header a.active {
+  color: gray(60%);
+  text-decoration: none;
+  cursor: default; }
+
+@font-face {
+  font-family: 'ProximaNovaCond';
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-136b8b50cabde19e5e8ab530f99e81ac.eot?136b8b50cabde19e5e8ab530f99e81ac");
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-136b8b50cabde19e5e8ab530f99e81ac.eot?&136b8b50cabde19e5e8ab530f99e81ac#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-30ea31cbd1e9632c6002a58b4eeb233f.woff?30ea31cbd1e9632c6002a58b4eeb233f") format("woff"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-972dee448fc162e9c89cb9beaaaecbfb.ttf?972dee448fc162e9c89cb9beaaaecbfb") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'ProximaNovaCond';
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormalItalic-c6b62bc44b0d3459f56ba92459c6c163.eot?c6b62bc44b0d3459f56ba92459c6c163");
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormalItalic-c6b62bc44b0d3459f56ba92459c6c163.eot?&c6b62bc44b0d3459f56ba92459c6c163#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormalItalic-174e83d6c5f650786cd413aa4276955d.woff?174e83d6c5f650786cd413aa4276955d") format("woff"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormalItalic-2a4911a4114779c4fe31e01e55573dc4.ttf?2a4911a4114779c4fe31e01e55573dc4") format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+@font-face {
+  font-family: 'ProximaNovaCond';
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-2f7537a1c2ebacfa4d9f42fa66f0ca68.eot?2f7537a1c2ebacfa4d9f42fa66f0ca68");
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-2f7537a1c2ebacfa4d9f42fa66f0ca68.eot?&2f7537a1c2ebacfa4d9f42fa66f0ca68#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-6e302c8978b1bd9d453fba318a1fa572.woff?6e302c8978b1bd9d453fba318a1fa572") format("woff"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-e3a413a3f145ddf79ef77f8ce3b45201.ttf?e3a413a3f145ddf79ef77f8ce3b45201") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'ProximaNovaCond';
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBoldItalic-86767d54bb7b6f76568c3cdf7a11c7a9.eot?86767d54bb7b6f76568c3cdf7a11c7a9");
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBoldItalic-86767d54bb7b6f76568c3cdf7a11c7a9.eot?&86767d54bb7b6f76568c3cdf7a11c7a9#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBoldItalic-926b0b499b8fa86bf8e9e61097c9c5b4.woff?926b0b499b8fa86bf8e9e61097c9c5b4") format("woff"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBoldItalic-749708412f9df0bc77e7542423cafd26.ttf?749708412f9df0bc77e7542423cafd26") format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+@font-face {
+  font-family: 'FranklinGothicMedium';
+  src: url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-medium-webfont-d32bea513a8903b55f2a03f1b7cec584.eot?d32bea513a8903b55f2a03f1b7cec584");
+  src: url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-medium-webfont-d32bea513a8903b55f2a03f1b7cec584.eot?&d32bea513a8903b55f2a03f1b7cec584#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-medium-webfont-9f6b1bb4667f7803e52e1ecb779c66f4.svg?9f6b1bb4667f7803e52e1ecb779c66f4#franklingothic_urwmedium") format("svg"), url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-medium-webfont-413a6d46d6e6a9f3153c98f9fd406e75.ttf?413a6d46d6e6a9f3153c98f9fd406e75") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'FranklinGothicDemi';
+  src: url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-demi-webfont-c78bb345e4d9018967085cb24c017a0f.eot?c78bb345e4d9018967085cb24c017a0f");
+  src: url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-demi-webfont-c78bb345e4d9018967085cb24c017a0f.eot?&c78bb345e4d9018967085cb24c017a0f#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-demi-webfont-8b7e896f61c73f13ba5e9e175b2d9c7d.svg?8b7e896f61c73f13ba5e9e175b2d9c7d#franklingothic_urwdemi") format("svg"), url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-demi-webfont-0d0886196150c1feb1724e8dfe13c644.ttf?0d0886196150c1feb1724e8dfe13c644") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+body {
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0; }
+
+h4 {
+  margin: 0 0 10px;
+  font-family: Georgia;
+  font-weight: normal;
+  font-size: 24px;
+  border-top: 1px solid #333;
+  padding: 6px 0 10px; }
+
+.tabs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: stretch;
+  -moz-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  font-family: ProximaNovaCond;
+  font-weight: normal; }
+  .tabs.svgs .pair {
+    cursor: pointer;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1 1;
+    -ms-flex: 1 1;
+    flex: 1 1;
+    max-width: 20%; }
+    .tabs.svgs .pair .amount {
+      font-size: 19px;
+      min-width: auto;
+      min-height: auto;
+      background: none;
+      border-radius: none;
+      padding-top: 8px;
+      margin: 0 0 40px; }
+  .tabs.svgs .active .pie {
+    fill: #729418; }
+  .tabs.svgs .active .amount {
+    color: #729418; }
+  .tabs .option {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1 1;
+    -ms-flex: 1 1;
+    flex: 1 1;
+    max-width: 32%;
+    text-align: center;
+    padding: 13px;
+    margin: 0 0 40px;
+    cursor: pointer;
+    background: #F1F2E7;
+    font-size: 19px; }
+    .tabs .option.active {
+      color: white;
+      background: #729418; }
+  .tabs .amount {
+    background: #F1F2E7;
+    min-width: 65px;
+    min-height: 65px;
+    font-size: 26px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 19px 0 0;
+    margin-bottom: 30px;
+    cursor: pointer; }
+    .tabs .amount.active {
+      color: white;
+      background: #729418; }
+
+h5 {
+  font-family: ProximaNovaCond;
+  font-weight: normal;
+  font-size: 16px; }
+
+textarea, input {
+  outline: none;
+  border: none;
+  background: white;
+  border: 1px solid #333;
+  font-family: ProximaNovaCond;
+  font-weight: normal;
+  -webkit-appearance: none;
+  border-radius: 0; }
+
+.ingredients {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  .ingredients h5 {
+    margin: 5px 0; }
+  .ingredients .list {
+    width: 50%;
+    margin-right: 20px; }
+    .ingredients .list:last-child {
+      margin-right: 0; }
+  .ingredients textarea {
+    resize: none;
+    width: 100%;
+    padding: 19px; }
+    .ingredients textarea::-webkit-input-placeholder {
+      color: #729418;
+      font-size: 16px; }
+    .ingredients textarea:-moz-placeholder {
+      /* Firefox 18- */
+      color: #729418; }
+    .ingredients textarea::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #729418; }
+    .ingredients textarea:-ms-input-placeholder {
+      color: #729418; }
+  .ingredients .results {
+    background: #F1F2E7;
+    padding: 20px; }
+  .ingredients textarea, .ingredients .results {
+    min-height: 100px;
+    font-family: ProximaNovaCond;
+    font-size: 18px; }
+
+.pans_container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  .pans_container .pan_container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-bottom: 20px;
+    padding-right: 20px; }
+    .pans_container .pan_container h5 {
+      margin-top: 5px;
+      margin-bottom: 0; }
+    .pans_container .pan_container.two {
+      border-left: 1px solid black;
+      padding-right: 0;
+      padding-left: 10px; }
+      .pans_container .pan_container.two .shapes {
+        margin-left: 10px; }
+      .pans_container .pan_container.two h5 {
+        margin-left: 10px; }
+
+.pan {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  font-family: ProximaNovaCond;
+  margin-bottom: 5px;
+  margin-top: -10px; }
+  .pan .shapes {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-pack: distribute;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center; }
+  .pan div .rect, .pan div .round {
+    cursor: pointer;
+    border: 1.5px solid #729418;
+    width: 50px;
+    height: 50px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    font-size: 20px;
+    margin: 20px 20px 0 0;
+    text-align: center; }
+    .pan div .rect.active, .pan div .round.active {
+      background: #729418;
+      color: white; }
+  .pan div .rect {
+    width: 130px;
+    height: 130px; }
+  .pan div .round {
+    border-radius: 50%;
+    width: 140px;
+    height: 140px; }
+  .pan h5 {
+    margin: 0;
+    margin-bottom: 4px; }
+  .pan .size {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 38px;
+    margin-left: 10px; }
+    .pan .size .measurement, .pan .size .container {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      -webkit-justify-content: space-between;
+      -moz-justify-content: space-between;
+      justify-content: space-between;
+      width: 100%; }
+    .pan .size .measurement {
+      margin: 0 0 22px; }
+      .pan .size .measurement.last {
+        margin-bottom: 0; }
+      .pan .size .measurement .by, .pan .size .measurement .inches {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 55px;
+        -moz-box-flex: 1;
+        -moz-flex: 1 1 55px;
+        -ms-flex: 1 1 55px;
+        flex: 1 1 55px;
+        text-align: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        justify-content: center;
+        font-size: 35px;
+        padding: 0;
+        margin: 0; }
+      .pan .size .measurement .by {
+        padding: 0 6px;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 1 30;
+        -moz-box-flex: 0;
+        -moz-flex: 0 1 30;
+        -ms-flex: 0 1 30;
+        flex: 0 1 30;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center; }
+        .pan .size .measurement .by svg {
+          width: 100%;
+          width: 18px;
+          height: auto; }
+      .pan .size .measurement input {
+        max-width: 37%;
+        min-height: 50px;
+        outline: none;
+        border: none;
+        font-size: 22px;
+        padding: 10px 8px 6px;
+        width: 100%;
+        text-align: center;
+        -webkit-box-flex: 2;
+        -webkit-flex: 2 1 auto;
+        -moz-box-flex: 2;
+        -moz-flex: 2 1 auto;
+        -ms-flex: 2 1 auto;
+        flex: 2 1 auto; }
+        .pan .size .measurement input.original {
+          background: #F1F2E7; }
+        .pan .size .measurement input.actual {
+          background: #729418;
+          color: white; }
+
+.print {
+  cursor: pointer; }
+
+h3.interactive {
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  font-family: ProximaNovaCond;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: #222;
+  margin-bottom: 0;
+  margin-top: 20px; }
+
+@media (max-width: 480px) {
+  .hide_mobile {
+    display: none; }
+
+  h5 {
+    padding-right: 25px;
+    font-size: 18px; }
+
+  .tabs .option {
+    max-width: 32%; }
+  .tabs .num_container {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px; }
+  .tabs .amount {
+    min-width: 80px;
+    min-height: 80px;
+    margin-bottom: 20px;
+    padding-top: 24px; }
+
+  .pan {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .pan .size {
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center; } }
+.border {
+  border-right: 1px solid #333;
+  width: 100%; }
