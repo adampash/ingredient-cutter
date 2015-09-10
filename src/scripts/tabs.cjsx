@@ -1,6 +1,6 @@
 React = require 'react'
 Factor = require './factor'
-Pan = require './pan'
+Pans = require './pans'
 Divide = require './divide'
 
 module.exports = React.createClass
@@ -32,7 +32,7 @@ module.exports = React.createClass
       </div>
       {
         if @props.active is "pan"
-          <Pan changeFactor={@props.changeFactor} changeFactor={@props.changeFactor} />
+          <Pans changeFactor={@props.changeFactor} changeFactor={@props.changeFactor} />
         else if @props.active is "divide"
           <Divide changeFactor={@props.changeFactor} factor={@props.factor}
             resize={@props.resize}

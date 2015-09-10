@@ -156,15 +156,42 @@ textarea, input {
     font-size: 18px;
   }
 }
+.pans_container {
+  @include flexbox;
+  @include flex-direction(row);
+  .pan_container {
+    @include flexbox;
+    @include flex-direction(column);
+    @include flex(1);
+    margin-bottom: 20px;
+    padding-right: 20px;
+    h5 {
+      margin-top: 5px;
+      margin-bottom: 0;
+    }
+    &.two {
+      border-left: 1px solid black;
+      padding-right: 0;
+      padding-left: 10px;
+      .shapes {
+        margin-left: 10px;
+      }
+      h5 {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+
 .pan {
   @include flexbox;
   @include flex-direction(row);
+  @include align-items(center);
   font-family: ProximaNovaCond;
-  margin-bottom: 40px;
+  margin-bottom: 5px;
   margin-top: -10px;
-  .size {
-    // border-left: 1px solid $black;
-  }
+  // width: 50%;
   .shapes {
     @include flexbox;
     @include flex-direction(row);
@@ -172,11 +199,13 @@ textarea, input {
     @include align-items(center);
   }
   div {
-    width: 50%;
+    // width: 50%;
     .rect, .round {
       cursor: pointer;
-      background: $tan;
-      width: 50%;
+      border: 1.5px solid $green;
+      width: 50px;
+      height: 50px;
+      // width: 50%;
       @include flexbox;
       @include justify-content(center);
       @include align-items(center);
@@ -203,18 +232,11 @@ textarea, input {
     margin: 0;
     margin-bottom: 4px;
   }
-  .border {
-    border-left: 1px solid $black;
-    width: 100%;
-  }
-  .push {
-    padding-left: 25px;
-    margin-left: 5px;
-    padding-right: 5px;
-  }
   .size {
     @include flexbox;
     @include flex-direction(column);
+    margin-top: 38px;
+    margin-left: 10px;
     .measurement, .container {
       @include flexbox;
       @include flex-direction(row);
@@ -240,12 +262,15 @@ textarea, input {
         margin: 0;
       }
       .by {
-        padding: 0 15px;
+        padding: 0 6px;
+        // max-width: 33%;
+        @include flex(0 1 30);
         @include flexbox;
         @include justify-content(center);
         @include align-items(center);
         svg {
           width: 100%;
+          width: 18px;
           height: auto;
         }
         // &::after {
@@ -253,6 +278,8 @@ textarea, input {
         // }
       }
       input {
+        max-width: 37%;
+        min-height: 50px;
         // color: $black;
         // font-weight: normal;
         // font-family: ProximaNovaCond;
@@ -318,9 +345,15 @@ $factor_num: 80px;
       padding-top: 24px;
     }
   }
-  .pan div {
-    .rect, .round {
-      font-size: 14px;
+  .pan {
+    @include flex-direction(column);
+    .size {
+      @include justify-content(center);
     }
   }
+}
+
+.border {
+  border-right: 1px solid $black;
+  width: 100%;
 }
